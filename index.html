@@ -3,31 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>PRESENT SERVICE – Premium-Leads: Junge Mütter</title>
+  <title>PRESENT SERVICE – Qualifizierte Leads für junge Familien</title>
   <style>
     :root {
       --primary: #c0007a;
       --primary-dark: #8a0057;
-      --bg-light: #f7f7f9;
-      --text-main: #222222;
-      --text-muted: #555555;
-      --border-soft: #e0e0e5;
+      --bg-light: #f8f5fa;
+      --text-main: #16161d;
+      --text-muted: #5b6071;
+      --border-soft: #e1e4ec;
     }
     * { box-sizing: border-box; }
     body {
       margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
       color: var(--text-main);
-      background: white;
+      background: #ffffff;
       line-height: 1.6;
     }
     a { color: inherit; }
+    img { max-width: 100%; }
     header {
-      background: radial-gradient(circle at top left, #ffe5f5 0, #f7f7f9 45%, #ffffff 100%);
+      background: radial-gradient(circle at top left, #ffe5f5 0, #f7f7fb 45%, #ffffff 100%);
       border-bottom: 1px solid var(--border-soft);
     }
     .nav {
-      max-width: 1080px;
+      max-width: 1120px;
       margin: 0 auto;
       padding: 16px 20px;
       display: flex;
@@ -40,14 +41,20 @@
       display: flex;
       align-items: center;
       gap: 10px;
+      min-width: 0;
     }
     .logo { height: 40px; width: auto; }
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
     .brand-title {
       font-weight: 700;
       letter-spacing: 0.06em;
       font-size: 14px;
       text-transform: uppercase;
       color: var(--primary-dark);
+      white-space: nowrap;
     }
     .brand-sub {
       font-size: 11px;
@@ -58,8 +65,9 @@
     .nav-right {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
       flex-wrap: wrap;
+      justify-content: flex-end;
     }
     .nav-link {
       font-size: 14px;
@@ -73,7 +81,7 @@
       justify-content: center;
       padding: 10px 20px;
       border-radius: 999px;
-      border: none;
+      border: 1px solid transparent;
       cursor: pointer;
       font-size: 14px;
       font-weight: 600;
@@ -84,31 +92,38 @@
     .btn-primary {
       background: var(--primary);
       color: #ffffff;
-      box-shadow: 0 10px 25px rgba(192,0,122,0.25);
+      border-color: var(--primary);
+      box-shadow: 0 12px 30px rgba(192,0,122,0.25);
     }
     .btn-primary:hover {
       background: var(--primary-dark);
+      border-color: var(--primary-dark);
       transform: translateY(-1px);
-      box-shadow: 0 14px 30px rgba(138,0,87,0.3);
+      box-shadow: 0 16px 36px rgba(138,0,87,0.3);
     }
     .btn-outline {
       background: transparent;
       color: var(--primary-dark);
-      border: 1px solid var(--primary-dark);
+      border-color: rgba(192,0,122,0.2);
     }
-    .btn-outline:hover { background: #fff0fb; }
+    .btn-outline:hover {
+      background: #fff0fb;
+      border-color: var(--primary-dark);
+    }
     .hero {
-      max-width: 1080px;
+      max-width: 1120px;
       margin: 0 auto;
-      padding: 40px 20px 50px;
+      padding: 36px 20px 48px;
       display: grid;
-      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.1fr);
       gap: 40px;
+      align-items: center;
     }
-    @media (max-width: 800px) {
-      .hero { grid-template-columns: 1fr; }
+    @media (max-width: 860px) {
+      .hero { grid-template-columns: 1fr; padding-top: 24px; }
       .nav { justify-content: center; }
       .nav-right { justify-content: center; }
+      .brand-title { font-size: 13px; }
     }
     .eyebrow {
       font-size: 13px;
@@ -119,67 +134,100 @@
       margin-bottom: 8px;
     }
     .hero h1 {
-      font-size: clamp(28px, 4vw, 36px);
+      font-size: clamp(28px, 4.2vw, 38px);
       margin: 0 0 10px;
     }
     .hero-lead {
       font-size: 16px;
       color: var(--text-muted);
+      margin-bottom: 18px;
+      max-width: 40rem;
+    }
+    .hero-lead-2 {
+      font-size: 14px;
+      color: var(--text-muted);
       margin-bottom: 22px;
+      max-width: 38rem;
     }
     .hero-badges {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
-      margin-bottom: 24px;
+      margin-bottom: 18px;
     }
     .badge {
       font-size: 12px;
-      padding: 4px 10px;
+      padding: 5px 12px;
       border-radius: 999px;
       border: 1px solid var(--border-soft);
-      background: white;
+      background: #ffffff;
       color: var(--text-muted);
     }
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
-      margin-bottom: 18px;
+      margin-bottom: 10px;
     }
-    .hero-note { font-size: 12px; color: var(--text-muted); }
+    .hero-note {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
     .hero-card {
-      background: white;
-      border-radius: 16px;
-      padding: 20px;
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 20px 20px 18px;
       border: 1px solid var(--border-soft);
-      box-shadow: 0 18px 45px rgba(0,0,0,0.06);
+      box-shadow: 0 18px 45px rgba(22,22,29,0.06);
     }
     .hero-card h3 {
       margin-top: 0;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
       font-size: 18px;
     }
     .hero-metric {
-      font-size: 26px;
-      font-weight: 700;
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
       color: var(--primary-dark);
       margin-bottom: 4px;
     }
-    .hero-metric-label {
-      font-size: 12px;
+    .hero-metric-sub {
+      font-size: 13px;
       color: var(--text-muted);
-      margin-bottom: 16px;
+      margin-bottom: 14px;
     }
-    .hero-list {
+    .hero-steps {
       list-style: none;
       padding-left: 0;
       margin: 0 0 10px;
       font-size: 13px;
     }
-    .hero-list li::before { content: "• "; color: var(--primary-dark); }
+    .hero-steps li {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+    .hero-steps span.bullet {
+      width: 18px;
+      height: 18px;
+      border-radius: 999px;
+      border: 1px solid var(--primary);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      color: var(--primary-dark);
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    main {
+      background: #ffffff;
+    }
     .section {
-      max-width: 1080px;
+      max-width: 1120px;
       margin: 0 auto;
       padding: 40px 20px;
       border-top: 1px solid var(--border-soft);
@@ -193,6 +241,7 @@
       font-size: 14px;
       color: var(--text-muted);
       margin-bottom: 24px;
+      max-width: 40rem;
     }
     .grid-3 {
       display: grid;
@@ -204,21 +253,25 @@
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 24px;
     }
-    @media (max-width: 800px) {
+    @media (max-width: 900px) {
       .grid-3, .grid-2 { grid-template-columns: 1fr; }
     }
     .card {
-      border-radius: 14px;
+      border-radius: 16px;
       border: 1px solid var(--border-soft);
       padding: 18px 18px 16px;
-      background: white;
+      background: #ffffff;
     }
     .card h3 {
       margin-top: 0;
       margin-bottom: 8px;
       font-size: 16px;
     }
-    .card p { font-size: 14px; color: var(--text-muted); margin: 0; }
+    .card p {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin: 0;
+    }
     .pill {
       display: inline-flex;
       align-items: center;
@@ -230,36 +283,97 @@
       color: var(--primary-dark);
       margin-bottom: 6px;
     }
-    .pricing-card {
-      border-radius: 16px;
-      border: 1px solid var(--border-soft);
-      padding: 18px 18px 20px;
-      background: white;
+    .process-list {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+      counter-reset: step;
+    }
+    .process-item {
       display: flex;
-      flex-direction: column;
-      gap: 8px;
+      gap: 12px;
+      margin-bottom: 16px;
+      align-items: flex-start;
     }
-    .pricing-name { font-weight: 600; font-size: 15px; }
-    .pricing-price {
-      font-size: 22px;
-      font-weight: 700;
+    .process-number {
+      counter-increment: step;
+      width: 26px;
+      height: 26px;
+      border-radius: 999px;
+      background: #fff0fb;
       color: var(--primary-dark);
-    }
-    .pricing-meta { font-size: 13px; color: var(--text-muted); }
-    .pricing-list {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       font-size: 13px;
+      font-weight: 600;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .process-copy h3 {
+      margin: 0 0 4px;
+      font-size: 15px;
+    }
+    .process-copy p {
+      margin: 0;
+      font-size: 14px;
       color: var(--text-muted);
-      padding-left: 18px;
-      margin: 6px 0 10px;
+    }
+    .faq-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+    @media (max-width: 800px) {
+      .faq-grid { grid-template-columns: 1fr; }
     }
     .faq-item {
-      border-bottom: 1px solid var(--border-soft);
-      padding: 12px 0;
+      border-radius: 14px;
+      border: 1px solid var(--border-soft);
+      padding: 14px 16px 12px;
+      background: #ffffff;
     }
-    .faq-item h3 { font-size: 15px; margin: 0 0 4px; }
-    .faq-item p { margin: 0; font-size: 14px; color: var(--text-muted); }
+    .faq-item h3 {
+      font-size: 15px;
+      margin: 0 0 4px;
+    }
+    .faq-item p {
+      margin: 0;
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+    .cta-band {
+      background: var(--bg-light);
+      border-radius: 18px;
+      padding: 18px 20px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px;
+      justify-content: space-between;
+      border: 1px solid #eadcf0;
+    }
+    .cta-band-text {
+      font-size: 14px;
+      color: var(--text-muted);
+      max-width: 32rem;
+    }
+    .trust-strip {
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-top:6px;
+      font-size:11px;
+      color:var(--text-muted);
+    }
+    .trust-pill {
+      padding:3px 9px;
+      border-radius:999px;
+      border:1px solid rgba(0,0,0,0.06);
+      background:#ffffffaa;
+    }
     .footer {
-      max-width: 1080px;
+      max-width: 1120px;
       margin: 0 auto;
       padding: 24px 20px 40px;
       font-size: 12px;
@@ -274,57 +388,71 @@
   <div class="nav">
     <div class="nav-left">
       <img src="data:image/png;base64,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" alt="Present Service Logo" class="logo">
-      <div>
+      <div class="brand-text">
         <div class="brand-title">PRESENT SERVICE</div>
         <div class="brand-sub">Marketing Communication</div>
       </div>
     </div>
     <div class="nav-right">
-      <a href="#pakete" class="nav-link">Pakete</a>
+      <a href="#prozess" class="nav-link">Ablauf</a>
+      <a href="#warum" class="nav-link">Warum wir</a>
+      <a href="#branchen" class="nav-link">Branchen</a>
       <a href="#faq" class="nav-link">FAQ</a>
       <a href="#kontakt" class="nav-link">Kontakt</a>
-      <!-- Bestellformular-Link -->
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLSfmJ9Eu-z77nyaCUT77Tw37wFrmMusssOFPtu2AfjhnzuWTtQ/viewform?usp=dialog" class="btn btn-primary" target="_blank" rel="noopener">Leads kaufen</a>
+      <a href="YOUR_LEAD_REQUEST_FORM_URL_HERE" class="btn btn-primary" target="_blank" rel="noopener">Zielgruppe definieren</a>
     </div>
   </div>
 
   <section class="hero">
     <div>
-      <div class="eyebrow">Premium-Leads für B2C-Kampagnen</div>
-      <h1>Junge Mütter gezielt erreichen – DSGVO-konform & kampagnenbereit.</h1>
+      <div class="eyebrow">Leads für junge Familien</div>
+      <h1>Gewinnen Sie qualifizierte Leads junger Familien – exakt nach Ihren Zielgruppenfiltern.</h1>
       <p class="hero-lead">
-        PRESENT SERVICE stellt Ihnen qualitätsgeprüfte Datensätze junger Mütter zur Verfügung,
-        die der werblichen Ansprache und Weitergabe ihrer Daten zugestimmt haben.
-        Ideal für Versicherungen, Babyprodukte, Fotografie, Handel und mehr.
+        Sie bestimmen Region, Kinderalter und Leadanzahl. Wir liefern DSGVO-konforme, geprüfte Leads
+        junger Mütter und Familien, die wirklich zu Ihrer Kampagne passen.
+      </p>
+      <p class="hero-lead-2">
+        Weniger Streuverlust, mehr relevante Kontakte – ideal für Versicherungen, Baby- &amp; Kinderprodukte,
+        E‑Commerce, lokale Services und mehr.
       </p>
       <div class="hero-badges">
-        <span class="badge">100 % dokumentierte Einwilligung</span>
-        <span class="badge">Segmentierbar nach Region & Kinderalter</span>
-        <span class="badge">Hohe Response- und Conversion-Raten</span>
+        <span class="badge">100% dokumentierte Einwilligungen</span>
+        <span class="badge">Selektierbar nach Region &amp; Kinderalter</span>
+        <span class="badge">Manuell &amp; technisch geprüfte Datenbasis</span>
       </div>
       <div class="hero-actions">
-        <!-- Bestellformular-Link -->
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfmJ9Eu-z77nyaCUT77Tw37wFrmMusssOFPtu2AfjhnzuWTtQ/viewform?usp=dialog" class="btn btn-primary" target="_blank" rel="noopener">Leads-Paket auswählen</a>
-        <!-- Testpaket-Formular-Link -->
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfI8jjt3TEii7VEgBgTZBz-Wl-ACN5zvthE8oz43tCh-4pHrw/viewform?usp=dialog" class="btn btn-outline" target="_blank" rel="noopener">50 Test-Leads anfordern</a>
+        <a href="YOUR_LEAD_REQUEST_FORM_URL_HERE" class="btn btn-primary" target="_blank" rel="noopener">Zielgruppe jetzt definieren</a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfI8jjt3TEii7VEgBgTZBz-Wl-ACN5zvthE8oz43tCh-4pHrw/viewform?usp=dialog" class="btn btn-outline" target="_blank" rel="noopener">Kostenlose Test-Leads anfragen</a>
       </div>
       <div class="hero-note">
-        Ideal für: Versicherungen · Baby- & Kinderprodukte · Familienfotografie · Möbel & Einrichtung · E-Commerce
+        Unverbindliche Anfrage · Keine Leads von der Stange · Persönliche Rücksprache bei Bedarf
       </div>
     </div>
 
     <aside class="hero-card">
-      <h3>Ihr Vorteil mit PRESENT SERVICE</h3>
-      <div class="hero-metric">Junge Mütter, echte Kaufkraft</div>
-      <div class="hero-metric-label">Zielgruppenspezifische Daten für treffsichere Kampagnen</div>
-      <ul class="hero-list">
-        <li>DSGVO-konforme Einwilligungen & dokumentierte Opt-ins</li>
-        <li>Filterbar nach PLZ, Kinderalter und weiteren Merkmalen</li>
-        <li>Schnelle Bereitstellung als CSV/Excel – direkt importierbar</li>
+      <h3>So werden aus Ihrer Anfrage echte Kampagnen-Leads</h3>
+      <div class="hero-metric">Qualität vor Quantität.</div>
+      <div class="hero-metric-sub">
+        Wir liefern keine zufälligen Datensätze, sondern selektierte Kontakte, die
+        zur Logik Ihrer Kampagne passen – für bessere Conversion und weniger verschwendetes Budget.
+      </div>
+      <ul class="hero-steps">
+        <li>
+          <span class="bullet">1</span>
+          <span>Sie definieren Zielgruppe, Region, Kinderalter und gewünschte Leadanzahl.</span>
+        </li>
+        <li>
+          <span class="bullet">2</span>
+          <span>Wir selektieren passende Datensätze, prüfen Qualität &amp; Einwilligungen.</span>
+        </li>
+        <li>
+          <span class="bullet">3</span>
+          <span>Sie erhalten eine strukturierte CSV-Datei und können direkt mit der Kampagne starten.</span>
+        </li>
       </ul>
-      <p class="hero-note">
-        Sie erhalten Lead-Daten, die sofort in E-Mail-Kampagnen, CRM-Systeme
-        oder Zielgruppen für Online-Ads übernommen werden können.
+      <p class="hero-note" style="margin-top:10px;">
+        <strong>Rechtssicher:</strong> Ausschließlich Datensätze mit dokumentierter Einwilligung zur
+        werblichen Ansprache und zur Weitergabe an Dritte.
       </p>
     </aside>
   </section>
@@ -333,187 +461,282 @@
 <main>
 
   <section class="section" id="vorteile">
-    <h2>Warum diese Leads für Ihre Kampagnen so wertvoll sind</h2>
+    <h2>Warum individuelle Lead-Anfragen mehr aus Ihrem Werbebudget machen</h2>
     <p class="section-sub">
-      Anstatt breite Zielgruppen mit hoher Streuung zu adressieren, erreichen Sie mit unseren Datensätzen genau die Personen,
-      die aktuell stark konsumorientiert sind: junge Mütter mit konkreten Bedürfnissen.
+      Standard-Leadpakete sind günstig – aber selten präzise. Mit PRESENT SERVICE erhalten Sie Leads,
+      die auf Ihre Zielgruppe und Kampagnenlogik zugeschnitten sind. Ergebnis: weniger Streuverlust,
+      mehr relevante Kontakte und ein messbar effizienteres Werbebudget.
     </p>
     <div class="grid-3">
+      <div class="card">
+        <div class="pill">Präzise Zielgruppe</div>
+        <h3>Leads nach Kampagnenlogik statt aus dem Zufallspool</h3>
+        <p>
+          Sie definieren, wen Sie erreichen wollen – z. B. junge Mütter in bestimmten Regionen, mit
+          Kindern in spezifischen Altersgruppen. Wir selektieren genau diese Zielgruppe und liefern
+          Ihnen die passende Datengrundlage.
+        </p>
+      </div>
       <div class="card">
         <div class="pill">Rechtssicherheit</div>
-        <h3>Revisionssichere Einwilligungen</h3>
-        <p>Alle Datensätze basieren auf nachweisbaren Opt-ins zur werblichen Ansprache und Weitergabe an Dritte – DSGVO-konform dokumentiert.</p>
+        <h3>DSGVO-konform &amp; dokumentiert</h3>
+        <p>
+          Unsere Datenbasis besteht ausschließlich aus Datensätzen mit expliziter Einwilligung zur
+          werblichen Ansprache und Weitergabe an Dritte. So können Sie Leads rechtssicher in Ihre
+          Systeme übernehmen.
+        </p>
       </div>
       <div class="card">
-        <div class="pill">Präzision</div>
-        <h3>Segmentierung nach Ihren Anforderungen</h3>
-        <p>Filtern Sie Leads nach Region, Kinderalter und weiteren Kriterien. So erreichen Sie genau die Familien, die zu Ihrem Angebot passen.</p>
-      </div>
-      <div class="card">
-        <div class="pill">Performance</div>
-        <h3>Hohe Konversionsraten</h3>
-        <p>Junge Familien sind eine besonders aktive Käufergruppe – ideal für Versicherungen, Handel, Dienstleistungen und Online-Shops.</p>
+        <div class="pill">Fokus auf Performance</div>
+        <h3>Weniger Rauschen, mehr potenzielle Kund:innen</h3>
+        <p>
+          Durch die Kombination aus technischen Filtern und Plausibilitätsprüfungen reduzieren wir
+          irrelevante Datensätze. So konzentrieren Sie Ihr Werbebudget auf Kontakte mit echter
+          Abschlusswahrscheinlichkeit.
+        </p>
       </div>
     </div>
   </section>
 
-  <section class="section">
-    <h2>Einsatzmöglichkeiten</h2>
-    <p class="section-sub">Unsere Datenbasis eignet sich für unterschiedlichste Branchen und Use Cases.</p>
-    <div class="grid-3">
-      <div class="card">
-        <h3>Versicherungen</h3>
-        <p>Familien-, Haushalts- oder Kinder-Unfallversicherungen zielgenau bewerben – mit minimalen Streuverlusten.</p>
-      </div>
-      <div class="card">
-        <h3>Baby- & Familienprodukte</h3>
-        <p>Von Nahrung über Pflegeprodukte bis zu Kinderwagen: sprechen Sie die passende Zielgruppe genau im passenden Lebensabschnitt an.</p>
-      </div>
-      <div class="card">
-        <h3>Fotografie & lokale Services</h3>
-        <p>Newborn-Shootings, Familienfotografie, Kurse, Events und mehr – perfekt für regionale Anbieter mit klarer Zielgruppe.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="pakete">
-    <h2>Lead-Pakete für jede Kampagnengröße</h2>
+  <section class="section" id="prozess">
+    <h2>Ihr Weg zu selektierten Leads – der Prozess in 4 Schritten</h2>
     <p class="section-sub">
-      Wählen Sie das Paket, das zu Ihrem Budget und Ihrem Kampagnenvolumen passt. Alle Pakete können auf Wunsch nach Region und weiteren Merkmalen gefiltert werden.
-    </p>
-    <div class="grid-3">
-      <div class="pricing-card">
-        <div class="pill">Einstieg</div>
-        <div class="pricing-name">Paket S – 300 Leads</div>
-        <div class="pricing-price">390 €</div>
-        <div class="pricing-meta">Ideal für Testkampagnen und erste Zielgruppen-Validierung.</div>
-        <ul class="pricing-list">
-          <li>300 qualifizierte Leads junger Mütter</li>
-          <li>Segmentierung nach Wunsch möglich</li>
-          <li>Lieferung als CSV/Excel per E-Mail</li>
-        </ul>
-        <!-- Bestellformular-Link -->
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfmJ9Eu-z77nyaCUT77Tw37wFrmMusssOFPtu2AfjhnzuWTtQ/viewform?usp=dialog" class="btn btn-primary" target="_blank" rel="noopener">Paket S bestellen</a>
-      </div>
-
-      <div class="pricing-card">
-        <div class="pill">Empfohlen</div>
-        <div class="pricing-name">Paket M – 1.000 Leads</div>
-        <div class="pricing-price">990 €</div>
-        <div class="pricing-meta">Für skalierende Kampagnen und wiederkehrende Aktionen.</div>
-        <ul class="pricing-list">
-          <li>1.000 qualifizierte Leads</li>
-          <li>Optimale Datenbasis für A/B-Tests</li>
-          <li>Ideal für E-Mail- und Social-Media-Kampagnen</li>
-        </ul>
-        <!-- Bestellformular-Link -->
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfmJ9Eu-z77nyaCUT77Tw37wFrmMusssOFPtu2AfjhnzuWTtQ/viewform?usp=dialog" class="btn btn-primary" target="_blank" rel="noopener">Paket M bestellen</a>
-      </div>
-
-      <div class="pricing-card">
-        <div class="pill">Skalierung</div>
-        <div class="pricing-name">Paket L – 3.000 Leads</div>
-        <div class="pricing-price">1.990 €</div>
-        <div class="pricing-meta">Perfekt für große Kampagnen und Agenturen.</div>
-        <ul class="pricing-list">
-          <li>3.000 qualifizierte Leads</li>
-          <li>Individuelle Segmentierung und Selektion</li>
-          <li>Besonders geeignet für nationale Rollouts</li>
-        </ul>
-        <!-- Bestellformular-Link -->
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfmJ9Eu-z77nyaCUT77Tw37wFrmMusssOFPtu2AfjhnzuWTtQ/viewform?usp=dialog" class="btn btn-primary" target="_blank" rel="noopener">Paket L bestellen</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="testpaket">
-    <h2>Kostenloses Testpaket mit 50 Leads</h2>
-    <p class="section-sub">
-      Überzeugen Sie sich unverbindlich von Datenqualität und Zielgruppengenauigkeit.
-      Wir stellen Ihnen ein Testpaket mit 50 Leads zur Verfügung – ideal, um erste Kennzahlen zu erheben.
+      Der Ablauf ist bewusst schlank: Sie definieren Ihre Wunschzielgruppe, wir kümmern uns um Selektion,
+      Qualitätssicherung und Aufbereitung. Sie erhalten eine Datei, die Sie direkt einsetzen können.
     </p>
     <div class="grid-2">
       <div>
+        <ol class="process-list">
+          <li class="process-item">
+            <div class="process-number">1</div>
+            <div class="process-copy">
+              <h3>Lead-Anfrage ausfüllen</h3>
+              <p>Sie beschreiben Ihre Zielgruppe: Region, Kinderalter, Leadanzahl, Branche und Kampagnenziel.
+              Je konkreter, desto passgenauer die Selektion.</p>
+            </div>
+          </li>
+          <li class="process-item">
+            <div class="process-number">2</div>
+            <div class="process-copy">
+              <h3>Daten-Selektion &amp; Qualitätsprüfung</h3>
+              <p>Wir filtern unsere Datenbank nach Ihren Kriterien und prüfen Datensätze sowohl technisch
+              als auch manuell auf Plausibilität und Einwilligungsstatus.</p>
+            </div>
+          </li>
+          <li class="process-item">
+            <div class="process-number">3</div>
+            <div class="process-copy">
+              <h3>Bereitstellung Ihrer Lead-Datei</h3>
+              <p>Sie erhalten einen sicheren Download-Link zu Ihrer CSV- oder Excel-Datei – inklusive aller
+              relevanten Felder für Kampagnen, CRM oder Newsletter-Tools.</p>
+            </div>
+          </li>
+          <li class="process-item">
+            <div class="process-number">4</div>
+            <div class="process-copy">
+              <h3>Kampagne starten &amp; Ergebnisse messen</h3>
+              <p>Sie importieren die Leads in Ihre Systeme und können Performance und Conversion klar
+              den selektierten Zielgruppen zuordnen.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+      <div>
+        <div class="card">
+          <div class="pill">Jetzt konkret werden</div>
+          <h3>Ihre Zielgruppe definieren</h3>
+          <p style="font-size:14px; color:var(--text-muted); margin-bottom:12px;">
+            Typische Filter, die Kund:innen nutzen:
+          </p>
+          <ul style="margin:0 0 12px 18px; padding:0; font-size:13px; color:var(--text-muted);">
+            <li>Region / PLZ-Bereich (z. B. Wien &amp; Umgebung)</li>
+            <li>Kinderalter (z. B. 0–3 Jahre, 4–6 Jahre)</li>
+            <li>Anzahl der Kinder im Haushalt</li>
+            <li>Branche &amp; Angebotsart (z. B. Versicherung, Retail, Fotografie)</li>
+          </ul>
+          <p style="font-size:13px; color:var(--text-muted); margin-bottom:14px;">
+            Nach dem Absenden Ihrer Anfrage erhalten Sie eine Bestätigung und – falls sinnvoll – eine
+            kurze Rückmeldung mit einer Empfehlung zu Umfang und Segmentierung.
+          </p>
+          <a href="YOUR_LEAD_REQUEST_FORM_URL_HERE" class="btn btn-primary" target="_blank" rel="noopener">Zielgruppe jetzt definieren</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="warum">
+    <h2>Warum PRESENT SERVICE?</h2>
+    <p class="section-sub">
+      Datenkauf ist Vertrauenssache. Unser Ansatz: klare Kriterien, transparente Prozesse und eine
+      Datenbasis, die speziell auf junge Familien ausgerichtet ist.
+    </p>
+    <div class="grid-3">
+      <div class="card">
+        <h3>Fokus: junge Familien</h3>
         <p>
-          Sie erhalten eine kleine, aber repräsentative Auswahl aus unserer Datenbasis und können diese direkt in
-          Ihren Systemen testen. So sehen Sie schnell, wie gut die Zielgruppe auf Ihr Angebot reagiert.
-        </p>
-        <p>
-          Nutzen Sie das Testpaket als Grundlage für eine fundierte Entscheidung zu größeren Kampagnen und Paketen.
+          Unsere Datenbasis ist auf Mütter und Familien mit Kindern ausgerichtet. Keine generischen
+          Massenlisten, sondern eine Zielgruppe mit konkreten Bedürfnissen und hoher Kaufkraft.
         </p>
       </div>
       <div class="card">
-        <h3>Testpaket anfragen</h3>
-        <p style="font-size:14px; color:var(--text-muted); margin-bottom:12px;">
-          Senden Sie uns Ihre Kontaktdaten und eine kurze Beschreibung Ihres Angebots. Wir melden uns zeitnah mit weiteren Details.
+        <h3>Kombination aus Technik &amp; Erfahrung</h3>
+        <p>
+          Wir verlassen uns nicht nur auf Filterlogik, sondern prüfen Datensätze zusätzlich manuell.
+          So stellen wir sicher, dass Ihre Leads zur Praxis Ihrer Kampagne passen – nicht nur zur Theorie.
         </p>
-        <p style="font-size:14px; margin-bottom:8px;"><strong>Ihre nächsten Schritte:</strong></p>
-        <ol style="font-size:13px; color:var(--text-muted); padding-left:18px; margin-top:0;">
-          <li>Formular öffnen</li>
-          <li>Kurze Angaben zu Unternehmen & Angebot machen</li>
-          <li>Test-Leads als CSV erhalten</li>
-        </ol>
-        <!-- Testpaket-Formular-Link -->
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfI8jjt3TEii7VEgBgTZBz-Wl-ACN5zvthE8oz43tCh-4pHrw/viewform?usp=dialog" class="btn btn-primary" target="_blank" rel="noopener">Testpaket-Formular öffnen</a>
+      </div>
+      <div class="card">
+        <h3>Klare Prozesse &amp; persönliche Betreuung</h3>
+        <p>
+          Auf Wunsch besprechen wir Ihre Anforderungen persönlich, geben Empfehlungen zur Leadanzahl
+          und Segmentierung und begleiten Sie bis zur fertigen Bereitstellung.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="branchen">
+    <h2>Wo unsere Leads besonders gut funktionieren</h2>
+    <p class="section-sub">
+      Überall dort, wo Familien, Kinder und Alltagsthemen im Fokus stehen, entfalten unsere Leads ihre
+      volle Wirkung. Einige typische Einsatzbereiche:
+    </p>
+    <div class="grid-3">
+      <div class="card">
+        <h3>Versicherungen</h3>
+        <p>
+          Familien-, Haushalts- und Kinder-Unfallversicherungen gezielt an Eltern kommunizieren, anstatt
+          breite, unscharfe Zielgruppen zu buchen.
+        </p>
+      </div>
+      <div class="card">
+        <h3>Baby- &amp; Kinderprodukte</h3>
+        <p>
+          Von Pflegeprodukten über Nahrung bis hin zu Ausstattung – sprechen Sie Eltern genau in der
+          Phase an, in der Kaufentscheidungen getroffen werden.
+        </p>
+      </div>
+      <div class="card">
+        <h3>E-Commerce &amp; Retail</h3>
+        <p>
+          Online-Shops, Möbelhäuser, Drogerien und Handelsketten können Kampagnen deutlich präziser
+          aussteuern und Streuverluste reduzieren.
+        </p>
+      </div>
+      <div class="card">
+        <h3>Fotografie &amp; lokale Services</h3>
+        <p>
+          Familien- und Newbornshootings, regionale Angebote, Kurse oder Events – ideal, wenn Sie
+          geographisch und demografisch genau eingrenzen möchten.
+        </p>
+      </div>
+      <div class="card">
+        <h3>Gesundheit &amp; Ernährung</h3>
+        <p>
+          Produkte und Services rund um Familiengesundheit, Prävention und bewusstes Leben profitieren
+          von zielgruppenspezifischer Ansprache.
+        </p>
+      </div>
+      <div class="card">
+        <h3>Individuelle Kampagnen</h3>
+        <p>
+          Sie planen etwas Außergewöhnliches? Teilen Sie Ihre Idee mit uns – wir prüfen,
+          welche Segmente sinnvoll und realistisch sind.
+        </p>
       </div>
     </div>
   </section>
 
   <section class="section" id="faq">
     <h2>Häufige Fragen (FAQ)</h2>
-    <div class="grid-2">
-      <div>
-        <div class="faq-item">
-          <h3>Sind die Daten DSGVO-konform?</h3>
-          <p>Ja. Alle Datensätze stammen aus Quellen mit expliziter Einwilligung zur werblichen Ansprache und Weitergabe an Dritte. Die Opt-ins sind dokumentiert und revisionssicher abgelegt.</p>
-        </div>
-        <div class="faq-item">
-          <h3>In welchem Format werden die Daten geliefert?</h3>
-          <p>Standardmäßig liefern wir eine CSV- oder Excel-Datei, die Sie direkt in Ihr CRM, E-Mail-System oder in Werbeplattformen importieren können.</p>
-        </div>
-        <div class="faq-item">
-          <h3>Wie aktuell sind die Datensätze?</h3>
-          <p>Unsere Datenbasis wird regelmäßig gepflegt. Veraltete oder abgemeldete Datensätze werden entfernt, sodass Sie ausschließlich aktive Leads erhalten.</p>
-        </div>
+    <div class="faq-grid">
+      <div class="faq-item">
+        <h3>Wie schnell erhalte ich meine Leads?</h3>
+        <p>
+          In der Regel innerhalb weniger Werktage, abhängig von Umfang und Komplexität Ihrer Anfrage.
+          Für einfache Segmente können wir meist sehr zeitnah liefern.
+        </p>
       </div>
-      <div>
-        <div class="faq-item">
-          <h3>Können Leads regional gefiltert werden?</h3>
-          <p>Ja. Auf Wunsch können wir Selektionen nach PLZ-Gebiet, Region oder weiteren Kriterien vornehmen, um Ihre Kampagne lokal zu fokussieren.</p>
-        </div>
-        <div class="faq-item">
-          <h3>Wie oft darf ich die Leads kontaktieren?</h3>
-          <p>Wir empfehlen, die üblichen Best Practices einzuhalten (z. B. 1–3 Kontaktversuche pro Kampagne) und in jeder Kommunikation eine Abmeldemöglichkeit anzubieten.</p>
-        </div>
-        <div class="faq-item">
-          <h3>Kann ich individuelle Pakete buchen?</h3>
-          <p>Ja. Neben den Standardpaketen sind auf Anfrage maßgeschneiderte Kontingente, Branchenfilter und Laufzeitmodelle möglich.</p>
-        </div>
+      <div class="faq-item">
+        <h3>Welche Selektionskriterien sind möglich?</h3>
+        <p>
+          Üblich sind Region/PLZ, Kinderalter, Anzahl der Kinder und Produktkategorie. Teilen Sie uns
+          im Formular Ihre Wunschkriterien mit – wir geben Ihnen Feedback, was sinnvoll ist.
+        </p>
+      </div>
+      <div class="faq-item">
+        <h3>Wie erhalte ich die Leads technisch?</h3>
+        <p>
+          Sie erhalten einen sicheren Download-Link zu einer CSV- oder Excel-Datei. Diese können Sie
+          direkt in CRM-Systeme, Newsletter-Tools oder Ads-Plattformen importieren.
+        </p>
+      </div>
+      <div class="faq-item">
+        <h3>Sind die Daten DSGVO-konform?</h3>
+        <p>
+          Ja. Unsere Datenbasis besteht ausschließlich aus Datensätzen mit dokumentierter Einwilligung
+          zur werblichen Ansprache und zur Weitergabe an Dritte.
+        </p>
+      </div>
+      <div class="faq-item">
+        <h3>Gibt es ein Testangebot?</h3>
+        <p>
+          Ja. Über unser Testformular können Sie kostenlose Test-Leads anfragen, um Datenqualität,
+          Zielgruppenfit und technische Anbindung vorab zu prüfen.
+        </p>
+      </div>
+      <div class="faq-item">
+        <h3>Ich bin unsicher, welche Leadanzahl sinnvoll ist.</h3>
+        <p>
+          Beschreiben Sie Ihre Kampagne im Formular – wir geben Ihnen eine Empfehlung zur passenden
+          Leadanzahl und möglichen Segmentierung.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="cta-band">
+      <div class="cta-band-text">
+        <strong>Bereit, Ihre nächste Kampagne gezielt zu starten?</strong><br>
+        Definieren Sie jetzt Ihre Wunschzielgruppe oder sichern Sie sich zunächst kostenlose Test-Leads,
+        um unsere Datenbasis kennenzulernen.
+      </div>
+      <div style="display:flex; flex-wrap:wrap; gap:10px;">
+        <a href="YOUR_LEAD_REQUEST_FORM_URL_HERE" class="btn btn-primary" target="_blank" rel="noopener">Zielgruppe definieren</a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfI8jjt3TEii7VEgBgTZBz-Wl-ACN5zvthE8oz43tCh-4pHrw/viewform?usp=dialog" class="btn btn-outline" target="_blank" rel="noopener">Test-Leads anfragen</a>
       </div>
     </div>
   </section>
 
   <section class="section" id="kontakt">
-    <h2>Kontakt & individuelle Anfragen</h2>
+    <h2>Kontakt & individuelle Rückfragen</h2>
     <p class="section-sub">
-      Sie planen eine größere Kampagne, wünschen individuelle Filter oder möchten als Agentur mit uns zusammenarbeiten?
-      Wir beraten Sie gerne persönlich.
+      Sie möchten größere Volumina, längere Laufzeiten oder spezielle Anwendungsfälle besprechen?
+      Schreiben Sie uns – wir melden uns zeitnah.
     </p>
     <div class="grid-2">
       <div>
         <p style="font-size:14px; color:var(--text-muted);">
-          Schreiben Sie uns eine E-Mail mit Informationen zu Ihrer Branche, Ihrem Zielmarkt und dem geplanten Kampagnenvolumen.
-          Wir melden uns zeitnah mit einem passenden Vorschlag.
+          Senden Sie uns eine E-Mail mit Ihrem Anliegen oder nutzen Sie unser Kontaktformular für
+          Rückfragen zu Konditionen, Volumen oder individuellen Segmentierungen.
         </p>
-        <p style="font-size:14px;"><strong>E-Mail:</strong> <a href="mailto:info@present-service.example">info@present-service.example</a></p>
+        <p style="font-size:14px;">
+          <strong>E-Mail:</strong>
+          <a href="mailto:info@present-service.example">info@present-service.example</a>
+        </p>
+        <div class="trust-strip">
+          <span class="trust-pill">DSGVO-konforme Datenbasis</span>
+          <span class="trust-pill">Dokumentierte Einwilligungen</span>
+          <span class="trust-pill">Individuelle Beratung möglich</span>
+        </div>
       </div>
       <div class="card">
-        <h3>Schnelle Anfrage starten</h3>
+        <h3>Kontaktformular öffnen</h3>
         <p style="font-size:14px; color:var(--text-muted); margin-bottom:10px;">
-          Alternativ können Sie Ihr Anliegen auch über unser Kontaktformular schildern.
+          Für schnelle Rückfragen oder individuelle Wünsche rund um Ihre Kampagnenziele.
         </p>
-        <!-- Kontaktformular-Link -->
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSc9aSzdrxeHT6OrrtHervGwQ6mLUNNhi2YVea8380RV4dgM1A/viewform?usp=dialog" class="btn btn-primary" target="_blank" rel="noopener">Kontaktformular öffnen</a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSc9aSzdrxeHT6OrrtHervGwQ6mLUNNhi2YVea8380RV4dgM1A/viewform?usp=dialog" class="btn btn-primary" target="_blank" rel="noopener">Zum Kontaktformular</a>
       </div>
     </div>
   </section>
@@ -523,9 +746,9 @@
 <footer class="footer">
   <div>
     <strong>PRESENT SERVICE – Marketing Communication</strong><br>
-    Premium-Leads & Kampagnenunterstützung für werbetreibende Unternehmen.
+    Lead-Generierung &amp; Zielgruppenselektion für werbetreibende Unternehmen.
   </div>
-  <div style="margin-top:10px;">
+  <div style="margin-top:8px;">
     Datenschutzhinweise und weitere rechtliche Informationen stellen wir Ihnen auf Anfrage gerne zur Verfügung.
   </div>
 </footer>
